@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #f00;
+}
+
+body {
+  background: #fff;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: .1rem;
+  width: 100%;
+  background: #aaa;
+  z-index: -1;
+}
+
+.heading span {
+  font-size: 5rem;
+  color: #f00;
+  background: #000;
+  padding: .5rem 1.5rem;
+  border: 0.1rem solid #aaa;
+  border-radius: .5rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  padding-right: 3rem;
+  background: linear-gradient(130deg, #f00 93%, transparent 90%);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 9%;
+  z-index: 10000;
+  background: #000;
+}
+
+.header .logo {
+  font-weight: bolder;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.header .logo span {
+  color: #f00;
+}
+
+.header .navbar a {
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.header .navbar a:hover {
+  background: #f00;
+}
+
+#menu-btn {
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.home {
+  min-height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  background:#ffe600;
+}
+
+.home .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+  margin-top: 5rem;
+}
+
+.home .image img {
+  width: 100%;
+  -webkit-animation: floating 4s linear infinite;
+          animation: floating 4s linear infinite;
+}
+
+.home .content {
+  margin-top: 1.5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.home .content h3 {
+  font-size: 6rem;
+}
+
+.home .content p {
+  font-size: 2rem;
+  padding: 1rem 0;
+  line-height: 2;
+}
+
+.services {
+  background: #f6e4d5;
+}
+
+.services .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 1.5rem;
+}
+
+.services .box-container .box {
+  background: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: .5rem;
+}
+
+.services .box-container .box img {
+  height: 8rem;
+  margin-bottom: .7rem;
+}
+
+.services .box-container .box h3 {
+  font-size: 2.2rem;
+  padding: 1.5rem 0;
+}
+
+.services .box-container .box p {
+  line-height: 2;
+  font-size: 1.7rem;
+}
+
+.about {
+  min-height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .image img {
+  height: 40rem;
+  margin-left: 0.1px;
+  width: 100%;
+  border: #060606;
+  border-radius: 20%;
+  border-color: #000;
+  border-width: 1rem;
+}
+
+.about .content {
+  margin-left: 2rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .content h3 {
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+.about .content p {
+  font-size: 1.7rem;
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+.steps {
+  background: #cae8e3;
+}
+
+.steps .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 1.5rem;
+}
+
+.steps .box-container .box {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.steps .box-container .box img {
+  height: 20rem;
+}
+
+.steps .box-container .box h3 {
+  font-size: 2.2rem;
+  padding: 2rem 0;
+}
+
+.steps .box-container .box p {
+  font-size: 1.7rem;
+  line-height: 2;
+  padding-bottom: 1rem;
+}
+
+.features .box-container .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 60vh;
+  margin-bottom: 3rem;
+}
+
+.features .box-container .box:last-child {
+  margin-bottom: 0;
+}
+
+.features .box-container .box:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse wrap;
+          flex-flow: row-reverse wrap;
+}
+
+.features .box-container .box .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.features .box-container .box .image img {
+  width: 100%;
+}
+
+.features .box-container .box .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.features .box-container .box .content h3 {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.features .box-container .box .content p {
+  padding: 1.5rem 0;
+  line-height: 2;
+  font-size: 1.7rem;
+}
+
+.pricing {
+  background: #f6e4d5;
+  text-align: center;
+}
+
+.pricing .price-toggler {
+  display: inline-block;
+  border-radius: .5rem;
+  padding: .5rem;
+  margin-bottom: 3rem;
+  background: #fff;
+  border: 0.2rem solid #000;
+}
+
+.pricing .price-toggler span {
+  display: inline-block;
+  font-weight: bolder;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: #000;
+  border-radius: .5rem;
+}
+
+.pricing .price-toggler span.active {
+  background: #000;
+  color: #fff;
+}
+
+.pricing .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 1.5rem;
+}
+
+.pricing .box-container .box {
+  padding: 3rem 2rem;
+  border-radius: .5rem;
+  background: #fff;
+}
+
+.pricing .box-container .box:nth-child(2) {
+  border: 0.2rem solid #000;
+}
+
+.pricing .box-container .box:nth-child(2) h3 {
+  background: #f6e4d5;
+}
+
+.pricing .box-container .box h3 {
+  font-size: 2rem;
+  display: inline-block;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  background: #cae8e3;
+  margin-bottom: 1rem;
+}
+
+.pricing .box-container .box .price {
+  padding: 2rem 0;
+}
+
+.pricing .box-container .box .price .month,
+.pricing .box-container .box .price .year {
+  font-size: 5rem;
+  -webkit-animation: fadeUp .2s linear backwards;
+          animation: fadeUp .2s linear backwards;
+}
+
+.pricing .box-container .box .price .month span,
+.pricing .box-container .box .price .year span {
+  font-size: 3rem;
+}
+
+.pricing .box-container .box .price .year {
+  display: none;
+}
+
+.pricing .box-container .box .list {
+  padding: 1rem 0;
+}
+
+.pricing .box-container .box .list p {
+  padding: 1.5rem 0;
+  font-size: 1.7rem;
+}
+
+.pricing .box-container .box .list p i {
+  padding-right: .5rem;
+}
+
+.reviews .slide-container .slide {
+  text-align: center;
+  max-width: 60rem;
+  margin: 1rem auto;
+  display: none;
+}
+
+.reviews .slide-container .slide.active {
+  display: block;
+}
+
+.reviews .slide-container .slide img {
+  
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-animation: fadeUp .2s linear backwards;
+          animation: fadeUp .2s linear backwards;
+}
+
+.reviews .slide-container .slide P {
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  line-height: 2;
+  -webkit-animation: fadeUp .2s linear .4s backwards;
+          animation: fadeUp .2s linear .4s backwards;
+}
+
+.reviews .slide-container .slide h3 {
+  padding-bottom: .7rem;
+  font-size: 2rem;
+  -webkit-animation: fadeUp .2s linear .6s backwards;
+          animation: fadeUp .2s linear .6s backwards;
+}
+
+.reviews .slide-container .slide span {
+  display: block;
+  font-size: 1.7rem;
+  -webkit-animation: fadeUp .2s linear .8s backwards;
+          animation: fadeUp .2s linear .8s backwards;
+}
+
+.reviews .controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.reviews .controls div {
+  font-size: 5rem;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.reviews .controls div:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.faq {
+  background: #cae8e3;
+}
+
+.faq .accordion-container {
+  margin: 1rem auto;
+  max-width: 70rem;
+}
+
+.faq .accordion-container .accordion {
+  margin: 1rem 0;
+  background-color: #fff;
+  border-radius: .5rem;
+}
+
+.faq .accordion-container .accordion.active .accordion-heading i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.faq .accordion-container .accordion.active .accordion-content {
+  display: block;
+}
+
+.faq .accordion-container .accordion .accordion-heading {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.faq .accordion-container .accordion .accordion-heading h3 {
+  font-size: 2.2rem;
+  line-height: 1.5;
+}
+
+.faq .accordion-container .accordion .accordion-heading i {
+  font-size: 2rem;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.faq .accordion-container .accordion .accordion-content {
+  padding: 2rem;
+  padding-top: 0;
+  line-height: 2;
+  font-size: 1.7rem;
+  display: none;
+  -webkit-animation: fadeUp .2s linear backwards;
+          animation: fadeUp .2s linear backwards;
+}
+
+.newsletter .content {
+  text-align: center;
+  max-width: 60rem;
+  margin: 1rem auto;
+}
+
+.newsletter .content h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter .content p {
+  padding: 1rem 0;
+  line-height: 2;
+  font-size: 1.7rem;
+}
+
+.newsletter .content p a {
+  color: #000;
+}
+
+.newsletter .content p a:hover {
+  text-decoration: underline;
+}
+
+.newsletter .content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 0.2rem solid #000;
+  border-radius: .5rem;
+  padding: .5rem;
+  margin: 1rem 0;
+}
+
+.newsletter .content form .email {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  font-size: 1.7rem;
+  text-transform: none;
+}
+
+.newsletter .content form .btn {
+  margin-top: 0;
+}
+
+.footer {
+  background: #f6e4d5;
+}
+
+.footer .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+  font-size: 2rem;
+  color: #000;
+  display: block;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover {
+  text-decoration: underline;
+}
+
+.footer .credit {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 2rem;
+  }
+  section {
+    padding: 3rem 2rem;
+  }
+  .home .content h3 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  #menu-btn.fa-times {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .header .btn {
+    display: none;
+  }
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    border-top: 0.2rem solid #000;
+    background: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  .header .navbar.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .header .navbar a {
+    display: block;
+    margin: 0;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .heading h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+    scroll-padding: 7rem;
+  }
+  .header {
+    padding: 0 2rem;
+  }
+  section {
+    padding: 3rem 2rem;
+  }
+  .home .slide {
+    padding: 2rem 5%;
+  }
+  .home .slide .content {
+    width: 50rem;
+  }
+  .home .slide .content h3 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+  }
+  #menu-btn.fa-times {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  .header {
+    padding: 2rem;
+  }
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: #000;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  .header .navbar.active {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .header .navbar a {
+    display: block;
+    font-size: 2rem;
+  }
+  .about {
+    gap: 3rem;
+  }
+  .about .image {
+    margin-top: 5rem;
+  }
+  .about .content .title {
+    font-size: 3rem;
+  }
+  .features .box-container .box.second {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
+
+/* BANNER SECTION */
+#banner{
+    margin-top: 15rem;
+    width: 100%;
+}
+#banner > div{
+    width: 93%;
+    height: 400px;
+    margin: auto;
+}
+#banner img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+#banner .forDesk{
+    display: none;
+}
+
+/* MAIN SECTION */
+main{
+    width: 93%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+main > #content{
+    width: 70%;
+}
+main > aside{
+    width: 30%;
+}
+#content_head{
+    margin-top: 2rem;
+}
+#content > #category{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "one two"
+    "three four"
+    "five six";
+    row-gap: 5rem;
+    column-gap: 1rem;
+}
+#category div:nth-child(1){
+    grid-area: one;
+}
+#category div:nth-child(2){
+    grid-area: two;
+}
+#category div:nth-child(3){
+    grid-area: three;
+}
+#category div:nth-child(4){
+    grid-area: four;
+}
+#category div:nth-child(5){
+    grid-area: five;
+}
+#category div:nth-child(6){
+    grid-area: six;
+}
+#category img{
+    width: 100%;
+    transition: 300ms all ease-in-out;
+}
+
+#category > div{
+    overflow: hidden;
+    cursor: pointer;
+}
+#category > div:hover img{
+    transform:  scale(1.08);
+}
+
+/* HOME & LIVING MEGAMENU */
+#megamenu_container{
+    position: relative;
+}
+#megamenu{
+    /* visibility: hidden; */
+    position: absolute; 
+    background-color: #fff;
+    left: 100%;
+    right: 100%;
+    top: 100%;
+    bottom: 100%;
+}
+/* #megamenu_container:hover #megamenu{
+    display: none;
+} */
+
+
+
+/* MAIN ASIDE SECTION */
+aside{
+    color: #626573;
+}
+aside div:nth-child(1){
+    margin-top: 4rem;
+}
+aside >*{
+    width: 70%;
+    margin: auto;
+}
+aside p{
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    cursor: pointer;
+}
+aside p:hover{
+    text-decoration: underline;
+}
+aside div h4{
+    margin: 2rem 0;
+    font-size: 1.7rem;
+}
+
+
+
+/* BRAND SECTIONS */
+.wrapper{
+    width: 100%;
+    margin: 7rem auto;
+    background-color: #f0eeef;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+        "top"
+        "bottom"
+    ;
+}
+.wrapper div:nth-child(1){
+    grid-area: top;
+}
+.wrapper div:nth-child(2){
+    grid-area: bottom;
+}
+section:nth-of-type(3) {
+    background-color:unset;
+}
+.wrapper > .container{
+    width: 93%;
+    margin: 0 auto;
+    display: flex;
+}
+.wrapper img{
+    width: 100%;
+    transition: 400ms all ease-in-out;
+}
+.container > div{
+    overflow: hidden;
+    cursor: pointer;
+}
+.container>div:hover img{
+    transform: scale(1.08);
+   
+}
+#featured{
+    display: block;
+    width: 93%;
+    margin: auto;
+}
+
+
+/* MEDIA QUERRIES FOR MOBILE */
+@media all and (max-width : 550px){
+    #banner .forDesk{
+        display: block;
+    }
+    main{
+        width: 90%;
+    }
+    main #content{
+        width: 100%;
+    }
+    main aside{
+        display: none;
+    }
+    .container :nth-child(3){
+        display: none;
+    }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+/*# 
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}    
+
+    </style>
+</head>
+<body>
+
+    <!-- header section starts      -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <span>FIT</span>BUD </a>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="{% url 'home' %}">home</a>
+        <a href="{% url 'about' %}">about</a>
+        <a href="{% url 'workout' %}">Exercises</a>
+        <a href="{% url 'bmi' %}">BMI</a>
+        <a href="{% url 'diet' %}">Diet</a>
+        <a href="{% url 'blog' %}">blogs</a>
+        <a href="{% url 'portfolio' %}">Know me</a>
+    </nav>
+
+</header>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+  <div class="swiper-slide slide" style="background: url(static/image/c14.png) no-repeat;">
+      <div class="content">
+          <span>Fit Bud !</span>
+          <h3>Welcome Fitbud.com,<br> Your training partner !!</h3><br><br><br>
+          <a href="#" class="btn">start Your journey</a>
+      </div>
+  </div>
+  
+  </section>
+  
+  <!-- home section ends -->
+  
+  
+  <!-- about section starts  -->
+  
+  <section class="about" id="about">
+  
+      <div class="image">
+          <img src="{% static 'images/c4.jpg' %}" alt="">
+      </div>
+  
+      <div class="content">
+          <h3>why you should <span class="line-down">choose us?</span></h3>
+          <p>We have a team of fitness professionals who possess extensive knowledge and expertise in the field. They understand the nuances of home fitness and can provide valuable insights, guidance, and resources to help users achieve their fitness goals effectively.</p>
+          <p>Our website offers a wide range of comprehensive and customized content tailored specifically for home fitness enthusiasts. </p>
+          <a href="#" class="btn">read more</a>
+      </div>
+  
+  </section>
+  
+  <!-- about section ends -->
+  
+  <!-- features section starts  -->
+  
+  <section class="features" id="features">
+  
+      <div class="heading">
+          <span>Blogs</span>
+          
+      </div>
+  
+      <div class="box-container">
+  
+          <div class="box">
+              <div class="image">
+                  <img src="{% static 'images/c2.jpg' %}" alt="">
+              </div>
+              <div class="content">
+                  <h3>Exercise Tips: <span class="line-down"></span></h3>
+                  <p>
+
+                    Incorporate strength training into your fitness routine to build lean muscle mass and increase metabolism.
+                    Make sure to warm up before any workout to prevent injuries and increase performance.
+                    Stay hydrated throughout your workout to optimize performance and aid in recovery.
+                    Focus on compound exercises that work multiple muscle groups, such as squats, deadlifts, and push-ups, for maximum efficiency.
+                    Mix up your workouts by trying different exercises or participating in various fitness classes to keep things interesting and challenge your body.</p>
+                  <a href="#" class="btn">read more</a>
+              </div>
+          </div>
+  
+          <div class="box">
+              <div class="image">
+                  <img src="{% static 'images/c3.jpg' %}" alt="">
+              </div>
+              <div class="content">
+                  <h3>Healthy Eating Advice: <span class="line-down"></span> </h3>
+                  <p> 
+
+                    Consume a balanced diet that includes a variety of fruits, vegetables, lean proteins, whole grains, and healthy fats.
+                    Portion control is essential. Pay attention to serving sizes to avoid overeating.
+                    Incorporate healthy snacks between meals to keep your energy levels stable and prevent excessive hunger.
+                    Limit your intake of processed foods, sugary drinks, and foods high in saturated and trans fats.
+                    Stay consistent with your eating habits and avoid crash diets. Focus on long-term sustainable changes.</p>
+                  <a href="#" class="btn">read more</a>
+              </div>
+          </div>
+  
+          <div class="box">
+              <div class="image">
+                  <img src="{% static 'images/c5.jpg' %}" alt="">
+              </div>
+              <div class="content">
+                  <h3>Mental Wellness and Fitness: <span class="line-down"></span> </h3>
+                  <p>
+
+                    Exercise not only benefits your physical health but also has a positive impact on your mental well-being. Regular physical activity can help reduce stress, anxiety, and symptoms of depression.
+                    Incorporate mindfulness practices such as yoga or meditation into your routine to improve focus, reduce stress, and enhance overall mental clarity.
+                    Prioritize quality sleep, as it is crucial for physical and mental recovery. Aim for 7-9 hours of uninterrupted sleep each night.
+                    </p>
+                  <a href="#" class="btn">read more</a>
+              </div>
+          </div>
+  
+          <div class="box">
+              <div class="image">
+                  <img src="{% static 'images/c6.jpg' %}" alt="">
+              </div>
+              <div class="content">
+                  <h3>Fitness Challenges and Goals:<span class="line-down"></span> </h3>
+                  <p>
+
+                    Set specific, measurable, achievable, relevant, and time-bound (SMART) fitness goals to keep yourself motivated and track progress.
+                    Consider participating in fitness challenges or signing up for events like 5K races or obstacle courses to give yourself a target to work towards.
+                    Use fitness apps or wearable devices to track your workouts, steps, and other fitness metrics. This can provide insights into your progress and help you stay accountable.</p>
+                  <a href="#" class="btn">read more</a>
+              </div>
+          </div>
+  
+      </div>
+  
+  </section>
+  
+  <!-- features section ends -->
+  
+  
+  
+  
+  
+  <section id="banner">
+    <div>
+        <img src="{% static 'images/c7.jpg' %}" alt="" class="forMob">
+        <img src="https://bit.ly/36AvNUN" alt="" class="forWeb forDesk">
+    </div>
+  </section>
+  
+ 
+  
+  
+  
+   
+</body>
+</html>

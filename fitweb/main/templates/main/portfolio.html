@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+      </head>
+      
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+ 
+span{
+   
+    font-size: 2rem;
+  color: #fff;
+  background: linear-gradient(#2b1055,#7597de);
+  padding: .5rem 1.5rem;
+  border: 0.1rem solid #aaa;
+  border-radius: .5rem;
+}
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'popins',sans-serif;
+            scroll-behavior: smooth;
+        }
+        body
+        {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background:linear-gradient(#2b1055,#7597de)
+        }
+        header{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display:flex;
+            justify-content: space-between;     
+            align-items: center;   
+            z-index: 10000;    
+        }
+        header .logo
+        {
+            color:#fff;
+            font-weight:500;
+            text-decoration:none;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing:1px;
+        }
+        header ul{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+             
+        }
+        header ul li{
+            list-style: none;
+            margin-left: 20px;
+        }
+        header ul li a
+        {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #fff;
+            border-radius: 20px;
+        }
+        header ul li a:hover,
+        header ul li a.active
+        {
+            background: #fff;
+            color: #2b1055;
+        }
+
+        section{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        section::before
+        {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top,#1c0522,transparent);
+            z-index: 1000;
+        }
+        section img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  
+            pointer-events: none;          
+        }
+        section img#moon {
+            mix-blend-mode:screen;
+        }
+        section img#mountains_front
+        {
+            z-index: 10;
+        }
+        #text{
+            position: absolute;
+            right: -350px;
+            color: #fff;
+            white-space: nowrap;
+            font-size: 7.5vw;
+            
+            z-index: 9;  
+            
+          }
+          #btn
+          {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 6px;
+            border-radius: 40px;
+            background: #fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+            
+          }
+          .sec{
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+
+          }
+          .sec h2{
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+
+          }
+          .sec p{
+            font-size: 1.2em;
+            
+            color: #fff;
+
+          }
+        
+          .icon {
+  width: 28px;
+  margin-right: 0.7rem;
+}
+
+.social-media {
+  padding: 2rem 0 0 0;
+}
+
+.social-media p {
+  color: #333;
+}
+
+.social-icons {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #96d284, #149279);
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 40px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #00aced; /* Change to your desired hover color */
+}
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <a href="'#" class="logo"><h3>Portfolio</h3></a>
+        <ul>
+            <li><a href="{% url 'home' %}" class="active"> Home</a></li>
+           
+
+        </ul>
+    </header>
+    <section>
+        <img src="{% static 'images/stars.png' %}" id="stars">
+        <img src="{% static 'images/moon.png' %}" id="moon">
+        <img src="{% static 'images/mountains_behind.png' %}" id="mountains_behind">
+        <h2 id="text">Monish Solanki</h2>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="{% static 'images/mountains_front.png' %}" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2> A Web Devloper </h2>
+        <p>Hello there! I'm Monish Solanki, a passionate and dedicated web developer with a strong love for all things digital. With 1 year of experience in the field, i have made few websites for enotes / fitness 
+            and currently working on a ecommerce website. <br><br>
+
+            <b>Skills :</b><br><br>
+            Frontend:   a decent hold on html  css and javascript. <br>
+            Backend:    Python, JavaScript and using django framework for my websites. <br><br>
+            <b>Education</b><br><br>
+             College: Chandigarh University , Computer Science. <br>
+             Schooling: from St Mary's Convent Dewas , INDIA <br>
+
+
+
+
+           <br>
+                I like to learn more about programming languages and try to imrove my skills everyday.
+                other than that, I am much intrested in football (watching and playing both).
+                
+            <bs></bs>
+
+
+
+            
+   
+<br><br>
+Feel free to reach out to me at rajputmonish1805@gmail.com to discuss your project or simply to connect. I'm excited to hear from you and explore the possibilities of creating something amazing together.
+<br><br><br><br><br>
+
+
+<span><b> Connect With Me: </b></span> <br><br>
+
+
+
+    <!-- Add font awesome icons -->
+    <div class="social-media">
+        <a href="https://myaccount.google.com/?pli=1" class="social-link" target="_blank">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://www.instagram.com/monish_.rajput_.solanki/" class="social-link" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/dev-monishsolanki" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/monish-baghsingh-solanki-/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-square"></i>
+          </a>
+      </div>
+      
+
+
+    
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
+        
+        window.addEventListener('scroll',function(){
+            let value = window.scrollY;
+            stars.style.left = value *0.25 + 'px';
+            moon.style.top = value *1.05+ 'px';
+            mountains_behind.style.top = value *0.5 + 'px';
+            mountains_front.style.top = value *0 + 'px';
+            text.style.marginRight =  value * 4+ 'px';
+            text.style.marginTop =  value * 1.5+ 'px';
+            btn.style.marginTop =  value * 1.5+ 'px';
+            header.style.top = value*0.5 +'px';
+            
+
+        })
+    </script>
+    
+</body>
+</html>

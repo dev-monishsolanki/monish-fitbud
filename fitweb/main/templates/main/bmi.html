@@ -1,0 +1,388 @@
+<html>
+<head>
+  {% load static %}
+	<title>BMI Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<style>
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+
+  
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #f00;
+}
+
+body {
+  background: #000;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: .1rem;
+  width: 100%;
+  background: #aaa;
+  z-index: -1;
+}
+
+.heading span {
+  font-size: 3rem;
+  color: #f00;
+  background: #000;
+  padding: .5rem 1.5rem;
+  border: 0.1rem solid #aaa;
+  border-radius: .5rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  padding-right: 3rem;
+  background: linear-gradient(130deg, #f00 93%, transparent 90%);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 9%;
+  z-index: 10000;
+  background: #000;
+}
+
+.header .logo {
+  font-weight: bolder;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.header .logo span {
+  color: #f00;
+}
+
+.header .navbar a {
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.header .navbar a:hover {
+  background: #f00;
+}
+
+#menu-btn {
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+body {
+    margin-top: 20rem;
+    background-color: #eee;
+    text-align: center;
+}
+
+button {
+    background-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+h2 {
+    size: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 5px 14px;
+    border: 2px solid #201f1d;
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,.4);
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+input:focus {
+    border: 2px solid rgba(0,0,0,.4);
+    background-color: rgb(60,60,60);
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    color: #000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+}
+
+form p {
+    
+    margin-bottom: 5px;
+}
+
+form p:nth-child(1){
+    margin-top: 1;
+    text-align: center;
+}
+
+
+.container .panel h1{
+  text-decoration: none;
+  padding: 1rem;
+  color: #f00;
+  text-decoration: underline;
+}
+
+
+.results .text-center{
+  padding: 1rem;
+}
+
+.results .text-center h3 b{
+  font-size: 1.3rem;
+}
+
+.about {
+  min-height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about .image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .image img {
+  height: 30rem;
+  margin-left: 0.4px;
+  width: 100%;
+  border: #060606;
+  border-radius: 10%;
+  border-color: #000;
+  border-width: 1rem;
+}
+
+.about .content {
+  margin-left: 2rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 42rem;
+          flex: 1 1 42rem;
+}
+
+.about .content h3 {
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+.about .content p {
+  font-size: 1.7rem;
+  line-height: 2;
+  padding: 1rem 0;
+}
+
+
+@media (min-width: 768px) {
+    .panel {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .panel {
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+
+    <!-- header section starts      -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <span>FIT</span>BUD </a>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="{% url 'home' %}">home</a>
+        <a href="{% url 'about' %}">about</a>
+        <a href="{% url 'workout' %}">Exercises</a>
+        <a href="{% url 'bmi' %}">BMI</a>
+        <a href="{% url 'diet' %}">Diet</a>
+        <a href="{% url 'blog' %}">blogs</a>
+        <a href="{% url 'portfolio' %}">Know me</a>
+    </nav>
+
+</header>
+
+<!-- header section ends     -->
+
+
+    <div class="container">
+    	<div class="panel">
+
+        <h1>Check your BMI</h1>
+    		
+    		
+    			<p id="introText" class="text-center"><h2>Enter your weight and height below to check your BMI results</h2></p>
+    			
+    			<form>
+    				<div id="weightInput">
+    					<p>Put your weight in here (KG)</p>
+    		     		<input id="weight" type="number" pattern="[0-9]*" name="a" />
+    				</div>
+    				<div id="heightInput">
+    					<p>And your height in here (CM)</p>
+	    				 <input id="height" type="number" pattern="[0-9]*" name="b"/> 
+    				</div>
+    		     <button type="button" class="btn" onclick="calculate()">Calculate BMI</button>
+             <div id="results" class="text-center"><h2><b>Your BMI results will appear here</b></h3></div>
+    		</form>
+    		
+    	</div>
+    </div>
+    <section class="about" id="about">
+  
+      <div class="image">
+          <img src="{% static 'images/c1.jpg'%}" alt="">
+      </div>
+  
+      <div class="content">
+          <h3>Know About BMI <span class="line-down"></span></h3>
+          <p>BMI, or Body Mass Index, is a numerical value calculated based on an individual's height and weight. It is used as a screening tool to assess whether a person has a healthy body weight in relation to their height. To calculate BMI, the weight of an individual in kilograms is divided by the square of their height in meters.</p>
+          <p>The formula for calculating BMI is as follows:
+
+            BMI = weight (kg) / (height (m))^2 </p>
+          <a href="#" class="btn">read more</a>
+      </div>
+  
+  </section>
+	<script>
+		var weight, height, measure, bmi, error ;
+
+function calculate() {
+
+	weight = document.getElementById("weight").value;
+	height = document.getElementById("height").value;
+	error = "Please enter some values";
+	height /= 100;
+	height *= height;
+	bmi = weight/height;
+	bmi = bmi.toFixed(1);
+
+	if (bmi <= 18.4) {
+		measure = "Your BMI is " + bmi + " which means " + "you are Underweight";
+	} else if (bmi >= 18.5 && bmi <= 24.9) {
+		measure = "Your BMI is " + bmi + " which means " + "You are Normal";
+	} else if (bmi >= 25 && bmi <= 29.9) {
+		measure = "Your BMI is " + bmi + " which means " + "You are Overweight";
+	} else if (bmi >= 30) {
+		measure = "Your BMI is " + bmi + " which means " + "You are Obese";
+	}
+	
+
+	if (weight === 0 ) {
+		document.getElementById("results").innerHTML = error;
+	} else if (height === 0){
+		document.getElementById("results").innerHTML = error;
+	}
+	 else {
+
+		document.getElementById("results").innerHTML = measure;
+	}
+	if (weight < 0) {
+		document.getElementById("results").innerHTML = "Negative Values not Allowed";
+	}
+}
+
+	</script>
+</body>
+</html>
